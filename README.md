@@ -68,3 +68,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Hello, thanks for coming to the project of John Josef and Harinder Singh. We'll be using a dadjoke API to create a website where it will form dad jokes depending on how you want to see it and allow people to create user profiles that will allow them to leave comments and ratings, along with add more dad jokes to the database if they wish. 
