@@ -2,6 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  useEffect(() => {
+    fetch("http://api.open-notify.org/astros.json")
+    .then((r) => r.json())
+    .then((data) => {
+      renderJokes(data);
+    })
+  })
   return (
     <div className="App">
       <header className="App-header">
