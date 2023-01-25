@@ -1,18 +1,40 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+
+
+const API=""
 
 function App() {
 
+  const [jokes, setJokes] = useState({})
+
+  const [search, setSearch] = useState("")
+
   useEffect(() => {
-    fetch("http://api.open-notify.org/astros.json")
-    .then((r) => r.json())
-    .then((data) => {
-      renderJokes(data);
-    })
-  })
+    fetch ("")
+    .then((res) => res.json())
+    .then((data) => setJokes(data))
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
+      <NavBar jokes={jokes} setJokes={setJokes} API={API} />
+      <Switch>
+        <Route exact path="">
+          <JokesForm jokes={jokes} setJokes={setJokes} API={API}/>
+        </Route>
+        <Route exact path="">
+          <Joke />
+        </Route>
+        <Route exact path="">
+          <Search search={search} setSearch={setSearch}/>
+          <JokesList jokes={jokes}/>
+        </Route>
+        <Route>
+          <ErrorPage />
+        </Route>
+      </Switch>
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -25,7 +47,7 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
     </div>
   );
 }
