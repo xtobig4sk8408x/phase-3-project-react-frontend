@@ -1,9 +1,38 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+
+
+const API=""
 
 function App() {
+
+  const [jokes, setJokes] = useState({})
+
+  const [search, setSearch] = useState("")
+
+  useEffect(() => {
+    fetch ("")
+    .then((res) => res.json())
+    .then((data) => setJokes(data))
+  }, []);
   return (
     <div className="App">
+      <Switch>
+        <Route exact path="">
+          <JokesForm jokes={jokes} setJokes={setJokes} API={API}/>
+        </Route>
+        <Route exact path="">
+          <Joke />
+        </Route>
+        <Route exact path="">
+          <Search search={search} setSearch={setSearch}/>
+          <JokesList jokes={jokes}/>
+        </Route>
+        <Route>
+          <ErrorPage />
+        </Route>
+      </Switch>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
