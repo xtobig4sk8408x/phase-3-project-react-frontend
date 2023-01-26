@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 
-function Joke({singleJoke}) {
+function Joke({singleJoke, API}) {
     const location = useLocation();
+    const {id} = useParams()
     const [joke, setJoke] = useState(null)
 
     useEffect(() => {
@@ -15,7 +16,7 @@ function Joke({singleJoke}) {
     }, [singleJoke, id])
 
     return (
-        <div className='' id={finalJoke.id}>
+        <div className=''>
             <li>
                 <img />
                 <h4></h4>

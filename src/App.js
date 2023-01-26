@@ -1,9 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import {Route, Switch} from "react-router-dom";
+import Joke from './components/Joke';
+import JokesForm from './components/JokesForm';
+import JokesList from './components/JokesList';
+import NavBar from './components/NavBar';
+import Search from './components/Search';
+import ErrorPage from './components/ErrorPage';
+import Login from './components/Login';
+import Comment from './components/Comment';
 
 
-const API=""
+
+const API="http://localhost:9292/"
 
 function App() {
 
@@ -12,7 +22,7 @@ function App() {
   const [search, setSearch] = useState("")
 
   useEffect(() => {
-    fetch ("")
+    fetch ("http://localhost:9292/")
     .then((res) => res.json())
     .then((data) => setJokes(data))
   }, []);
@@ -24,7 +34,7 @@ function App() {
           <JokesForm jokes={jokes} setJokes={setJokes} API={API}/>
         </Route>
         <Route exact path="">
-          <Joke />
+          <Joke API={API}/>
         </Route>
         <Route exact path="">
           <Search search={search} setSearch={setSearch}/>
@@ -32,6 +42,9 @@ function App() {
         </Route>
         <Route>
           <ErrorPage />
+        </Route>
+        <Route>
+          <Login />
         </Route>
       </Switch>
       {/* <header className="App-header">
