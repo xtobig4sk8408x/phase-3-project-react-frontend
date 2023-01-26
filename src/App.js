@@ -12,7 +12,7 @@ function App() {
   const [search, setSearch] = useState("")
 
   useEffect(() => {
-    fetch ("")
+    fetch ("http://localhost:9292/")
     .then((res) => res.json())
     .then((data) => setJokes(data))
   }, []);
@@ -20,7 +20,7 @@ function App() {
     <div className="App">
       <NavBar jokes={jokes} setJokes={setJokes} API={API} />
       <Switch>
-        <Route exact path="">
+        <Route exact path="/jokes">
           <JokesForm jokes={jokes} setJokes={setJokes} API={API}/>
         </Route>
         <Route exact path="">
