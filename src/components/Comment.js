@@ -1,8 +1,10 @@
 import React from "react";
 
-function Comment() {
+function Comment({comment}) {
     return (
         <div>
+            <span>Rating: {comment.rating}</span>
+            <p>{comment.comment}</p>
         </div>
     )
 }

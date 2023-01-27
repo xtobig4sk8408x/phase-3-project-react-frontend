@@ -1,18 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import Joke from './components/Joke';
+import JokesForm from './components/JokesForm';
+import JokesList from './components/JokesList';
+import NavBar from './components/NavBar';
+import Search from './components/Search';
+import ErrorPage from './components/ErrorPage';
+import Login from './components/Login';
+import Comment from './components/Comment';
 
 
-const API=""
 
 function App() {
+  const API="http://localhost:9292"
 
-  const [jokes, setJokes] = useState({})
+  const [jokes, setJokes] = useState([])
 
   const [search, setSearch] = useState("")
 
   useEffect(() => {
-    fetch ("http://localhost:9292/")
+    fetch (API + "/jokes")
     .then((res) => res.json())
     .then((data) => setJokes(data))
   }, []);
@@ -20,15 +29,15 @@ function App() {
     <div className="App">
       <NavBar jokes={jokes} setJokes={setJokes} API={API} />
       <Switch>
-        <Route exact path="/jokes">
+        <Route exact path="/jokes/new">
           <JokesForm jokes={jokes} setJokes={setJokes} API={API}/>
         </Route>
-        <Route exact path="">
-          <Joke />
+        <Route exact path="/jokes/:id">
+          <Joke API={API}/>
         </Route>
-        <Route exact path="">
+        <Route exact path="/">
           <Search search={search} setSearch={setSearch}/>
-          <JokesList jokes={jokes}/>
+          <JokesList jokes={jokes} API={API}/>
         </Route>
         <Route>
           <ErrorPage />
