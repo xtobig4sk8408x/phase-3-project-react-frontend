@@ -1,10 +1,10 @@
 import React from 'react';
 import Joke from './Joke';
 
-function JokesList({jokes}) {
+function JokesList({jokes, API}) {
 
     const jokesList = jokes.map(singleJoke => 
-        <Joke singleJoke={singleJoke} key={singleJoke.id} />)
+        <Joke singleJoke={singleJoke} key={singleJoke.id} API={API} />)
 
     return (
         <div className="JokesList">
