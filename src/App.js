@@ -28,6 +28,8 @@ function App() {
   }, []);
   return (
     <div className="App">
+      <p>text in there</p>
+      <Login />
       <NavBar jokes={jokes} setJokes={setJokes} API={API} />
       <Switch>
         <Route exact path="">

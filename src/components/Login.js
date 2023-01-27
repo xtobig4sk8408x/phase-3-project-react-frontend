@@ -10,6 +10,37 @@ import Link from '@mui/joy/Link';
 
 function Login() {
 
+    const handleSubmit = () => {
+        let x
+    }
+
+    const handleChange = () => {
+        let y
+    }
+
+    // useEffect(() => {
+    //     const fetchData = async () => {
+    //       try {
+    //         const r = await fetch("http://localhost:9292/users")
+    //         const data = await r.json()
+    //         setUsers(data)
+    //       } catch (e) {
+    //         alert(e)
+    //       }
+    //     }
+    //     fetchData()
+    //     }, [])
+      
+    //     const mappedUsers = users.map(user => <User {...user} key = {user.id} />)
+      
+    //       return(
+    //           <div>
+    //             {mappedUsers}
+                  
+    //           </div>
+    //       )
+    //   }
+
     return (
         <CssVarsProvider>
           <main>
@@ -43,7 +74,8 @@ function Login() {
                     type="email"
                     placeholder="johndoe@email.com"
                     onChange={handleChange}
-                    value={user.email}
+                    // value={user.email}
+                    value=""
                     />
                 </FormControl>
                 <FormControl>
@@ -54,14 +86,15 @@ function Login() {
                     type="password"
                     placeholder="password"
                     onChange={handleChange}
-                    value={user.password}
+                    // value={user.password}
+                    value=""
                     />
                 </FormControl>
     
                 <Button type="submit" sx={{ mt: 1 /* margin top */ }}>Log in</Button>
                 </form>
               <Typography
-                endDecorator={<Link onClick={() => setToggleAuth(currentVal => !currentVal)}>Sign up</Link>}
+                endDecorator={<Link /*onClick={() => setToggleAuth(currentVal => !currentVal)}*/>Sign up</Link>}
                 fontSize="sm"
                 sx={{ alignSelf: 'center' }}
               >
@@ -70,8 +103,7 @@ function Login() {
             </Sheet>
           </main>
         </CssVarsProvider>
-      );
-    
+      )
 }
 
 export default Login;
