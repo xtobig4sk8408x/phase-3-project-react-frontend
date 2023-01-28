@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Comment({comment}) {
+
     return (
         <div>
             <span>Rating: {comment.rating}</span>
