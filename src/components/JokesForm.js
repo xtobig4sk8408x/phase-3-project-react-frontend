@@ -20,7 +20,7 @@ function JokesForm({jokes, setJokes, API}) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(API, {
+        fetch(`${API}/jokes/new`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -36,8 +36,8 @@ function JokesForm({jokes, setJokes, API}) {
         <form onSubmit={handleSubmit} className="ui form">
             <div className="inline fields">
                 <input value={newForm.joke} onChange={handleChange} type="text" name="joke" placeholder="Joke" /> <br />
-                <input value={newForm.comment} onChange={handleChange} type="text" name="comment" placeholder="Comment" /> <br />
-                <input value={newForm.rating} onChange={handleChange} type="integer" name="rating" placeholder="Rating" /> <br />
+                {/* <input value={newForm.comment} onChange={handleChange} type="text" name="comment" placeholder="Comment" /> <br />
+                <input value={newForm.rating} onChange={handleChange} type="integer" name="rating" placeholder="Rating" /> <br /> */}
                 {/* <input value={newForm.} onChange={handleChange} type="" name="" placeholder="" /> <br />
                 <input value={newForm.} onChange={handleChange} type="" name="" placeholder="" /> <br />
                 <input value={newForm.} onChange={handleChange} type="" name="" placeholder="" /> <br />

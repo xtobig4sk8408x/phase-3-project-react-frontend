@@ -2,18 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useParams, Link } from 'react-router-dom';
 import Comment from './Comment'
 
-function Joke({singleJoke, API, handleTrash}) {
+function SingleJoke({singleJoke, API, handleTrash}) {
     const location = useLocation();
     const {id} = useParams()
     const [joke, setJoke] = useState(null)
-    const [newForm, setNewForm] = useState({
-        comment: "",
-        rating: ""
-    })
+    // const [newForm, setNewForm] = useState({
+    //     comment: "",
+    //     rating: ""
+    // })
+    const [rating, setRating] = useState()
+    const [comment, setComment] = useState("")
 
-    const handleChange = (e) => {
-        setNewForm({...newForm, [e.target.name]: e.target.value})
-    }
+    // const handleChange = (e) => {
+    //     setNewForm({...newForm, [e.target.name]: e.target.value})
+    // }
 
     const handleDelete = () => {
         handleTrash(singleJoke)
@@ -26,8 +28,8 @@ function Joke({singleJoke, API, handleTrash}) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          rating: newForm.rating,
-          comment: newForm.comment
+          rating: rating,
+          comment: comment
         }),
       });
     };
@@ -57,22 +59,16 @@ function Joke({singleJoke, API, handleTrash}) {
                     </>
                 )}
                     {/* <button>View Joke</button> */}
-                {/* <form onSubmit={handleSubmit} >
-                <input value={newForm.comment} onChange={handleChange} type="text" name="comment" placeholder="Comment" /> <br />
-                <input value={newForm.rating} onChange={handleChange} type="integer" name="rating" placeholder="Rating" /> <br />
+                <form onSubmit={handleSubmit} >
+                <input value={comment} onChange={(e) => setComment(e.target.value)} type="text" name="comment" placeholder="Comment" /> <br />
+                <input value={rating} onChange={(e) => setRating(e.target.value)} type="integer" name="rating" placeholder="Rating" /> <br />
                 <button>Add Comment</button>
-                </form> */}
-                {/* <span className='card-detail'>Comment: {}</span> <br />
-                <span className='card-detail'>Rating: {}</span> <br /> */}
-                {/* <span></span>
-                <span></span>
-                <span></span> */}
+                </form>
                 <button onClick={handleDelete} className="delete joke">Delete 🗑</button>
-                {/* <button onClick={handleClick}></button> */}
                 </Link>
             </li>
         </div>
     )
 }
 
-export default Joke;
+export default SingleJoke;
