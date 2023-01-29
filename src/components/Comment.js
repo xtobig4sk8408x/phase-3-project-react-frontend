@@ -4,8 +4,8 @@ function Comment({comment}) {
 
     return (
         <div>
+            <p>Comment: {comment.comment}</p>
             <span>Rating: {comment.rating}</span>
-            <p>{comment.comment}</p>
         </div>
     )
 }

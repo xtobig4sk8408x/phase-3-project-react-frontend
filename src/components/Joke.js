@@ -49,6 +49,7 @@ function Joke({singleJoke, API, handleTrash}) {
                 <Link to={`/jokes/${finalJoke.id}`}>
                 <h4></h4>
                 <span className='card-detail'>Joke: {finalJoke.joke}</span> <br />
+                </Link>
                 {location.pathname === "/" ? null : (
                     <>
                     {finalJoke.comments.map(comment => <Comment comment = {comment}/>)}
@@ -69,7 +70,6 @@ function Joke({singleJoke, API, handleTrash}) {
                 <span></span> */}
                 <button onClick={handleDelete} className="delete joke">Delete 🗑</button>
                 {/* <button onClick={handleClick}></button> */}
-                </Link>
             </li>
         </div>
     )
