@@ -41,7 +41,6 @@ function App() {
 
   return (
     <div className="App">
-      <p>text in there</p>
       {/* <Login /> */}
       <NavBar jokes={jokes} setJokes={setJokes} API={API} />
       <Switch>
@@ -49,11 +48,11 @@ function App() {
           <JokesForm jokes={jokes} setJokes={setJokes} API={API}/>
         </Route>
         <Route exact path="/jokes/:id">
-          <SingleJoke API={API} setJokes={setJokes}/>
+          <SingleJoke API={API} setJokes={setJokes} handleTrash={handleTrash}/>
         </Route>
         <Route exact path="/">
           <Search search={search} setSearch={setSearch}/>
-          <JokesList jokes={jokes} API={API} handleTrash={handleTrash} />
+          <JokesList jokes={jokes} API={API} handleTrash={handleTrash} search={search} />
         </Route>
         <Route>
           <ErrorPage />

@@ -35,7 +35,7 @@ function JokesForm({jokes, setJokes, API}) {
     <div className="ui segment">
         <form onSubmit={handleSubmit} className="ui form">
             <div className="inline fields">
-                <input value={newForm.joke} onChange={handleChange} type="text" name="joke" placeholder="Joke" /> <br />
+                <input className="joke-form" value={newForm.joke} onChange={handleChange} type="text" name="joke" placeholder="Joke" /> <br />
                 {/* <input value={newForm.comment} onChange={handleChange} type="text" name="comment" placeholder="Comment" /> <br />
                 <input value={newForm.rating} onChange={handleChange} type="integer" name="rating" placeholder="Rating" /> <br /> */}
                 {/* <input value={newForm.} onChange={handleChange} type="" name="" placeholder="" /> <br />
@@ -44,7 +44,7 @@ function JokesForm({jokes, setJokes, API}) {
                 <input value={newForm.} onChange={handleChange} type="" name="" placeholder="" /> <br />
                 <input value={newForm.} onChange={handleChange} type="" name="" placeholder="" /> <br />
                 <input value={newForm.} onChange={handleChange} type="" name="" placeholder="" /> <br /> */}
-                <input value="Add Joke" type="submit" /> <br />
+                <input className="add-joke-button" value="Add Joke" type="submit" /> <br />
             </div>
         </form>
     </div>
