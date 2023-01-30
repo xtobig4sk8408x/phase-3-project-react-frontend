@@ -1,27 +1,37 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, useParams, Link } from 'react-router-dom';
+import { useLocation, useParams, Link, useHistory } from 'react-router-dom';
 import Comment from './Comment'
 
-function SingleJoke({singleJoke, API, handleTrash, setJokes}) {
+function SingleJoke({jokes, API, handleTrash, setJokes}) {
     const location = useLocation();
     const {id} = useParams()
-    const [newJoke, setNewJoke] = useState(singleJoke)
-    const [joke, setJoke] = useState("")
+    // const singleJoke = jokes.find((joke) => joke.id == id)
+    const [newJoke, setNewJoke] = useState("")
+    const [joke, setJoke] = useState({})
     // const [newForm, setNewForm] = useState({
     //     comment: "",
     //     rating: ""
     // })
     const [rating, setRating] = useState()
     const [comment, setComment] = useState("")
-    const [updatedJoke, setUpdatedJoke] = useState("")
+    // console.log(singleJoke)
 
     // const handleChange = (e) => {
     //     setNewForm({...newForm, [e.target.name]: e.target.value})
     // }
 
+    // const handleTrash = (someName) => {
+    //     fetch(`${API}/jokes/${someName.id}`, {
+    //       method: "DELETE"
+    //     })
+    //     const newJoke = jokes.filter(joke => joke.id !== someName.id) // ? listing : null)
+    //     setJokes(newJoke)
+    //   }
+
     const handleDelete = () => {
-        handleTrash(singleJoke)
+        handleTrash(joke)
     }
+
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch(`${API}/jokes/:id/comments`, {
@@ -37,6 +47,8 @@ function SingleJoke({singleJoke, API, handleTrash, setJokes}) {
     };
       
         // function handlePatchSubmit(e) {
+
+        
         //   e.preventDefault();
         //   fetch(`http://localhost:9393/jokes/${id}`, {
         //     method: "PATCH",
@@ -61,8 +73,8 @@ function SingleJoke({singleJoke, API, handleTrash, setJokes}) {
                 joke: newJoke
             }),
         })
-            .then((r) => r.json())
-            .then((updatedJoke) => setNewJoke(updatedJoke));
+            // .then((r) => r.json())
+            // .then((updatedJoke) => setJoke(updatedJoke));
     };
 
     const handleFormSubmit = (e) => {
@@ -71,24 +83,26 @@ function SingleJoke({singleJoke, API, handleTrash, setJokes}) {
     }
 
     useEffect(() => {
-        if (!singleJoke) {
         fetch (API + `/jokes/${id}`)
         .then(res => res.json())
-        .then(jokeObj => setJoke(jokeObj))
+        .then(jokeObj => {
+            setJoke(jokeObj);
+        })
         .catch(err => alert(err))
-        }
-    }, [singleJoke, id])
-    const finalJoke = !joke ? singleJoke : joke
-    if (!finalJoke) return <div>Loading...</div>
+    }, []);
+    // const joke = !joke ? joke : joke
+    if (!joke.id) return <div>Loading...</div>
+    
+    //console.log(joke, singleJoke )
     return (
         <div className=''>
             <li>
                 <img />
                 <h4></h4>
-                <span className='card-detail'>Joke: {finalJoke.joke}</span> <br />
+                <span className='card-detail'>Joke: {joke && joke.joke}</span> <br />
                 {location.pathname === "/" ? null : (
                     <>
-                    {finalJoke.comments.map(comment => <Comment comment = {comment} />)}
+                    {/* {finalJoke.comments.map(comment => <Comment comment = {comment} />)} */}
 
                     
                     </>
