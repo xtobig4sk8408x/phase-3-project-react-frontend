@@ -1,72 +1,55 @@
-# Getting Started with Create React App
+# Welcome to Dad Jokes! A place to just find dad jokes to annoy the people around you!
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> To view in VSCode, right click on the README.md file and select "Open Preview".
 
-## Available Scripts
+## Setup
 
-In the project directory, you can run:
+### To get started:
 
-### `npm start`
+The link for the repository for the front-end is here: [https://github.com/xtobig4sk8408x/phase-3-project-react-frontend](https://github.com/xtobig4sk8408x/phase-3-project-react-frontend)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The link for the repository for the back-end is here: [https://github.com/xtobig4sk8408x/phase-3-sinatra-react-project](https://github.com/xtobig4sk8408x/phase-3-sinatra-react-project)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.Ensure that you have both the frontend and the backend files downloaded<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.In the backend directory, run the command: <span style="color:#83AAF1">bundle install</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.Once that command finishes running, in the same terminal, run the command: <span style="color:#83AAF1">rake server</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Now go back to ubuntu and navigate to the frontend <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.In the frontend run the command: <span style="color:#83AAF1">npm install</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.Once the terminal finishes it's processes, run the command: <span style="color:#83AAF1">npm start</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6.The website should open onto your browser automatically. If not, you can navigate to the page by entering the address where the frontend server has started. By default, this is: [http://localhost:3000/](http://localhost:3000/)<br>
 
-### `npm test`
+## What is it:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A basic application that was meant to allow you to scroll through and read through dad jokes. If you create a user account on the website it would allow you to comment and rate each joke with the option to edit and delete your rating. You also have the option of adding a dad joke to the database, editing your own joke, and deleting your own joke. So far we only have the CRUD part of the jokes. The application was also created in hopes of creating data of which jokes people enjoy more and which jokes aren't enjoyed as much
 
-### `npm run build`
+## The Tools Used:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+is a representation of what can be done when working with languages:_Ruby_  and _React_ using _Active Record_, _Sinatra_, _JavaScript_, _HTML_, and _CSS_. This web-based application utilizes several tools and features from these languages including _associations_,  _DOM/Server communication_, _routing_ and more.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!-- Insert GIF -->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When users open up the application they are greeted by the home page which displays a navigation bar, the store banner, and then all of the products we have available listed below. In the NavBar, the user can then elect to sign in or sign up, they will then be introduced to a login form that is changable to a sign in form if the user does not already have an account, and vice-versa. For account creation to work, the user must meet certain account creation requirements. Once those requirements are met, the new users data is stored within our Ruby database and passwords go through a process with _bcrypt_ and _dotenv_ where their passwords are salted and hashed, making it much more difficult for unauthorized users to gain acess to their account information.
 
-### `npm run eject`
+## The dad jokes webpage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+is a project made by Harinder Singh & John Josef. Students of Flatiron school that made this project for Phase 3.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-Hello, thanks for coming to the project of John Josef and Harinder Singh. We'll be using a dadjoke API to create a website where it will form dad jokes depending on how you want to see it and allow people to create user profiles that will allow them to leave comments and ratings, along with add more dad jokes to the database if they wish. 
+MIT License
+Copyright (c) 2023 xtobig4sk8408x/harinderovo
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
