@@ -12,6 +12,25 @@ function SingleJoke({jokes, API, handleTrash, setJokes}) {
     //     comment: "",
     //     rating: ""
     // })
+
+    const [ratings, setRatings] = useState([])
+    const [updatedJoke, setUpdatedJoke] = useState("")
+    const [comments, setComments] = useState([])
+
+    const handleClick = () => {
+        setComments((comments) => [...comments, comment])
+    };
+    const onChangeHandler = (e) => {
+        setComment(e.target.value)
+    };
+
+    const handleRatingClick = () => {
+        setRatings((ratings) => [...ratings, rating])
+    };
+    const onChangeRatingHandler = (e) => {
+        setRating(e.target.value)
+    };
+
     const [rating, setRating] = useState()
     const [comment, setComment] = useState("")
     // console.log(singleJoke)
@@ -34,7 +53,7 @@ function SingleJoke({jokes, API, handleTrash, setJokes}) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        fetch(`${API}/jokes/:id/comments`, {
+        fetch(`${API}/jokes/${joke.id}/comments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -96,8 +115,28 @@ function SingleJoke({jokes, API, handleTrash, setJokes}) {
     //console.log(joke, singleJoke )
     return (
         <div className=''>
-            <li>
-                <img />
+            <div className="main-container">
+            {comments.map((text) => (
+                <div className="comment-container">{text}</div>
+            ))}
+            <div className="comment-flexbox">
+                <h3 className="comment-text">Comments</h3>
+                <textarea value={comment} onChange={onChangeHandler} className="input-box" />
+                <button onClick={handleClick} className="comment-button">Submit</button> 
+            </div>
+
+            <div className="main-container-rating">
+            {ratings.map((number) => (
+                <div className="rating-container">{number}</div>
+            ))}
+            <div className="rating-flexbox">
+                <h3 className="rating-text">Rating</h3>
+                <textarea value={rating} onChange={onChangeRatingHandler} className="input-box-rating" />
+                <button onClick={handleRatingClick} className="rating-button">Submit</button> 
+            </div>
+        </div>
+
+        </div>
                 <h4></h4>
                 <span className='card-detail'>Joke: {joke && joke.joke}</span> <br />
                 {location.pathname === "/" ? null : (
@@ -109,16 +148,15 @@ function SingleJoke({jokes, API, handleTrash, setJokes}) {
                 )}
                     {/* <button>View Joke</button> */}
                 <form onSubmit={handleSubmit} >
-                <input value={comment} onChange={(e) => setComment(e.target.value)} type="text" name="comment" placeholder="Comment" /> <br />
-                <input value={rating} onChange={(e) => setRating(e.target.value)} type="integer" name="rating" placeholder="Rating" /> <br />
-                <button>Add Comment and Rating</button>
+                {/* <input value={comment} onChange={(e) => setComment(e.target.value)} type="text" name="comment" placeholder="Comment" /> <br /> */}
+                {/* <input value={rating} onChange={(e) => setRating(e.target.value)} type="integer" name="rating" placeholder="Rating" /> <br /> */}
+                {/* <button>Add Comment and Rating</button> */}
                 </form>
                 <form onSubmit={handleFormSubmit} >
-                <input value={newJoke} onChange={(e) => setNewJoke(e.target.value)} type="text" name="new joke" placeholder="New Joke" /> <br />
-                <button>Edit Joke</button>
+                <input className="edit-joke-form" value={newJoke} onChange={(e) => setNewJoke(e.target.value)} type="text" name="new joke" placeholder="Enter New Joke" /> <br />
+                <button className="edit-joke-button">Edit Joke</button>
                 </form>
-                <button onClick={handleDelete} className="delete joke">Delete 🗑</button>
-            </li>
+                <button onClick={handleDelete} className="delete-joke-button">Delete 🗑</button>
         </div>
     )
 }

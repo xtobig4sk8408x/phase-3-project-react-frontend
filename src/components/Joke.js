@@ -31,6 +31,7 @@ function Joke({singleJoke, API, handleTrash}) {
         }),
       });
     };
+    
 
     useEffect(() => {
         if (!singleJoke) {
@@ -48,7 +49,7 @@ function Joke({singleJoke, API, handleTrash}) {
                 <img />
                 <Link to={`/jokes/${finalJoke.id}`}>
                 <h4></h4>
-                <span className='card-detail'>Joke: {finalJoke.joke}</span> <br />
+                <span className='card-detail'>{finalJoke.joke}</span> <br />
                 </Link>
                 {location.pathname === "/" ? null : (
                     <>
@@ -68,7 +69,7 @@ function Joke({singleJoke, API, handleTrash}) {
                 {/* <span></span>
                 <span></span>
                 <span></span> */}
-                <button onClick={handleDelete} className="delete joke">Delete 🗑</button>
+                <button onClick={handleDelete} className="delete-joke-button-list">Delete 🗑</button>
                 {/* <button onClick={handleClick}></button> */}
             </li>
         </div>
