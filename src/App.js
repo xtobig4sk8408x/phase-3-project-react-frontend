@@ -48,7 +48,7 @@ function App() {
           <JokesForm jokes={jokes} setJokes={setJokes} API={API}/>
         </Route>
         <Route exact path="/jokes/:id">
-          <SingleJoke API={API} setJokes={setJokes} handleTrash={handleTrash}/>
+          <SingleJoke API={API} setJokes={setJokes} handleTrash={handleTrash} jokes={jokes}/>
         </Route>
         <Route exact path="/">
           <Search search={search} setSearch={setSearch}/>
